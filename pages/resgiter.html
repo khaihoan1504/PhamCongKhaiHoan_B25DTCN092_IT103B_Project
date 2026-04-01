@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <title>Rikkei Cinema</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo-header">
+        <img src="/assets/images/Logo.png" alt="Logo" />
+      </div>
+      <nav>
+        <a href="">Trang chủ</a>
+        <a href="">Thông tin</a>
+        <a href="">Liên hệ</a>
+        <a class="btn-login" href="/pages/login.html">Đăng nhập</a>
+      </nav>
+    </header>
+    <main>
+      <div class="form-resgiter-container">
+        <h1>Tạo tài khoản mới</h1>
+        <p>Đăng ký để đặt vé xem phim ngay hôm nay</p>
+        <form class="form-resgiter">
+          <label class="label-input-resgiter" for="name">Họ và tên</label>
+          <input
+            class="input-resgiter"
+            id="iName"
+            type="text"
+            placeholder="Nguyễn Văn A"
+          />
+          <span class="alert-error-name">Tên không được để trống!</span>
+          <label class="label-input-resgiter" for="email">Email</label>
+          <input
+            class="input-resgiter"
+            type="text"
+            id="iEmail"
+            placeholder="email@example.com"
+          />
+          <span class="alert-error-email">Email không được để trống!</span>
+
+          <label class="label-input-resgiter" for="password">Mật khẩu</label>
+          <div class="password-container">
+            <img
+              class="password-icon"
+              src="/assets/icons/close-eye.png"
+              alt=""
+            />
+            <input id="iPassword" class="input-resgiter" type="password" />
+          </div>
+          <span class="alert-error-password"
+            >Mật khẩu không được để trống!</span
+          >
+          <label class="label-input-resgiter" for="password"
+            >Xác nhận mật khẩu</label
+          >
+          <div class="password-container">
+            <img
+              class="password-icon"
+              src="/assets/icons/close-eye.png"
+              alt=""
+            />
+            <input class="input-resgiter" id="iPasswordAgain" type="password" />
+          </div>
+          <span class="alert-error-password-again"
+            >Mật khẩu không được để trống!</span
+          >
+
+          <div class="confirm">
+            <input type="checkbox" id="iConfirm" />
+            <span
+              >Tôi đồng ý với <a href="">điều khoản sử dụng</a> và chính sách
+              bảo mật của CineEdu.</span
+            >
+            <span
+              class="alert-error-confirm"
+              style="
+                display: none;
+                color: #e70814;
+                font-size: 12px;
+                margin-top: 5px;
+              "
+            >
+              Bạn phải đồng ý với điều khoản sử dụng!
+            </span>
+          </div>
+          <div class="submit-resgiter-container">
+            <img
+              class="submit-resgiter-icon"
+              src="/assets/icons/arrow.png"
+              alt=""
+            />
+            <button class="submit-resgiter">Đăng ký</button>
+          </div>
+        </form>
+        <span class="login-now"
+          >Đã có tài khoản? <a href="/pages/login.html">Đăng nhập ngay</a></span
+        >
+      </div>
+      <p class="copyright">© 2026 RikkeiEdu. Tất cả quyền được bảo mật .</p>
+    </main>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/register.js"></script>
+  </body>
+</html>

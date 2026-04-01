@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <title>Rikkei Cinema</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo-header">
+        <img src="/assets/images/Logo.png" alt="Logo" />
+      </div>
+      <nav>
+        <a href="">Trang chủ</a>
+        <a href="">Thông tin</a>
+        <a href="">Liên hệ</a>
+        <a class="btn-login" href="/pages/login.html">Đăng nhập</a>
+      </nav>
+    </header>
+    <main class="main">
+      <div class="form-login-card">
+        <img
+          class="bg-login"
+          src="/assets/images/Background-Login.png"
+          alt=""
+        />
+
+        <form class="form-login">
+          <h1>Chào mừng quay trở lại</h1>
+
+          <label class="email-pass-login" for="email">Email</label>
+          <div class="input-container">
+            <img class="input-icon" src="/assets/icons/email.png" alt="" />
+            <input
+              id="iEmail"
+              class="form-login-input"
+              type="text"
+              placeholder="Nhập email của bạn"
+            />
+          </div>
+          <p
+            class="alert-error-email"
+            style="
+              display: none;
+              color: #e70814;
+              font-size: 12px;
+              margin-top: 5px;
+            "
+          >
+            Email không được để trống!
+          </p>
+
+          <label class="email-pass-login" for="password">Mật khẩu</label>
+
+          <div class="input-container">
+            <img class="input-icon" src="/assets/icons/open-eye.png" alt="" />
+            <input
+              id="iPassword"
+              class="form-login-input"
+              type="password"
+              placeholder="Nhập mât khẩu của bạn"
+            />
+          </div>
+          <p
+            class="alert-error-password"
+            style="
+              display: none;
+              color: #e70814;
+              font-size: 12px;
+              margin-top: 5px;
+            "
+          >
+            Mật khẩu không được để trống!
+          </p>
+
+          <div class="remember-forget">
+            <div class="remeber">
+              <input type="checkbox" />
+              <label class="remember-text" for="">Ghi nhớ đăng nhập </label>
+            </div>
+            <a href="">Quên mật khẩu?</a>
+          </div>
+          <div class="login-btn-container">
+            <img class="login-btn-icon" src="/assets/icons/next.png" alt="" />
+            <button class="login-btn">Đăng nhập</button>
+          </div>
+
+          <span
+            >Bạn chưa có tài khoản?
+            <a href="/pages/resgiter.html">Đăng ký ngay</a></span
+          >
+        </form>
+      </div>
+    </main>
+
+    <script src="/js/login.js"></script>
+  </body>
+</html>
