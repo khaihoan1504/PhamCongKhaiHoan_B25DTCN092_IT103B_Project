@@ -39,7 +39,7 @@ body {
 }
 
 main {
-  background-image: url(/assets/images/Background-Resgiter.png);
+  background-image: url(/cinema_management/assets/images/Background-Resgiter.png);
   background-color: #221011;
   background-size: cover;
   background-position: center;
@@ -204,4 +204,3 @@ main {
   color: #e70814;
   font-size: 12px;
 }
-

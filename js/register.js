@@ -162,10 +162,10 @@ eyeIcons.forEach((icon, index) => {
 
     if (currentInput.type === "password") {
       currentInput.type = "text";
-      icon.src = "/assets/icons/open-eye.png";
+      icon.src = "/cinema_management/assets/icons/open-eye.png";
     } else {
       currentInput.type = "password";
-      icon.src = "/assets/icons/close-eye.png";
+      icon.src = "/cinema_management/assets/icons/close-eye.png";
     }
   });
 });

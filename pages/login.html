@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/cinema_management/css/login.css" />
     <title>Rikkei Cinema</title>
   </head>
   <body>
     <header class="header">
       <div class="logo-header">
-        <img src="/assets/images/Logo.png" alt="Logo" />
+        <img src="/cinema_management/assets/images/Logo.png" alt="Logo" />
       </div>
       <nav>
-        <a href="">Trang chủ</a>
+        <a href="/cinema_management/pages/index.html">Trang chủ</a>
         <a href="">Thông tin</a>
         <a href="">Liên hệ</a>
         <a class="btn-login" href="/pages/login.html">Đăng nhập</a>
@@ -22,7 +22,7 @@
       <div class="form-login-card">
         <img
           class="bg-login"
-          src="/assets/images/Background-Login.png"
+          src="/cinema_management/assets/images/Background-Login.png"
           alt=""
         />
 
@@ -31,7 +31,11 @@
 
           <label class="email-pass-login" for="email">Email</label>
           <div class="input-container">
-            <img class="input-icon" src="/assets/icons/email.png" alt="" />
+            <img
+              class="input-icon"
+              src="/cinema_management/assets/icons/email.png"
+              alt=""
+            />
             <input
               id="iEmail"
               class="form-login-input"
@@ -54,7 +58,12 @@
           <label class="email-pass-login" for="password">Mật khẩu</label>
 
           <div class="input-container">
-            <img class="input-icon" src="/assets/icons/open-eye.png" alt="" />
+            <img
+              class="input-icon"
+              id="password-icon"
+              src="/cinema_management/assets/icons/open-eye.png"
+              alt=""
+            />
             <input
               id="iPassword"
               class="form-login-input"
@@ -76,24 +85,33 @@
 
           <div class="remember-forget">
             <div class="remeber">
-              <input type="checkbox" />
-              <label class="remember-text" for="">Ghi nhớ đăng nhập </label>
+              <input id="rememberCheckbox" type="checkbox" />
+              <label class="remember-text" for="rememberCheckbox"
+                >Ghi nhớ đăng nhập
+              </label>
             </div>
             <a href="">Quên mật khẩu?</a>
           </div>
           <div class="login-btn-container">
-            <img class="login-btn-icon" src="/assets/icons/next.png" alt="" />
+            <img
+              class="login-btn-icon"
+              src="/cinema_management/assets/icons/next.png"
+              alt=""
+            />
             <button class="login-btn">Đăng nhập</button>
           </div>
 
           <span
             >Bạn chưa có tài khoản?
-            <a href="/pages/resgiter.html">Đăng ký ngay</a></span
+            <a href="/cinema_management/pages/resgiter.html"
+              >Đăng ký ngay</a
+            ></span
           >
         </form>
       </div>
     </main>
+    <div id="toast-container"></div>
 
-    <script src="/js/login.js"></script>
+    <script src="/cinema_management/js/login.js"></script>
   </body>
 </html>

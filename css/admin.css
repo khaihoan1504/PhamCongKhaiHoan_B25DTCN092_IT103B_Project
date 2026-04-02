@@ -1,0 +1,165 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: black;
+  width: 255px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border-right: 1px solid #543b3c;
+}
+
+.menu {
+  padding: 16px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+}
+
+.menu-item a {
+  color: #ba9c9d;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-top: 1px solid #543b3c;
+}
+
+.user-name h3 {
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.user-name p {
+  font-size: 12px;
+  line-height: 16px;
+  color: #94a3b8;
+}
+
+.log-out-icon {
+  cursor: pointer;
+}
+
+.main {
+  background-color: black;
+  flex: 1;
+  padding: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-desc h1 {
+  color: white;
+  font-size: 30px;
+  line-height: 36px;
+}
+
+.title-desc p {
+  color: #ba9c9d;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.search-add {
+  display: flex;
+  gap: 12px;
+}
+
+.search {
+  color: #ba9c9db2;
+  background-color: #271b1c;
+  border: 1px solid #543b3c;
+  border-radius: 8px;
+  padding: 12px 12px 12px 45px;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+}
+
+.add-film {
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  padding: 10px 20px;
+  background-color: #e60a15;
+  border-radius: 8px;
+  border: 0;
+}
+
+.filter {
+  display: flex;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.filter-item {
+  color: #ba9c9d;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: #271b1c;
+  border: 1px solid #000000;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  display: inline-block;
+}
+
+.table {
+  margin-top: 32px;
+  border: 1px solid #543b3c;
+}
+
+.thead {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: #ba9c9d;
+  background-color: #1f1616;
+}
+
+.film-name h3 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+}
+
+.film-name p {
+  color: #ba9c9d;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
