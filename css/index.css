@@ -88,6 +88,7 @@
   color: #d1d5d8;
   font-size: 20px;
   font-weight: 400;
+  width: 50%;
 }
 .button-title {
   display: flex;

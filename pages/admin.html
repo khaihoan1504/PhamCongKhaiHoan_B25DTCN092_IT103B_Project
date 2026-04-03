@@ -61,7 +61,7 @@
               />
               <input class="search" type="text" placeholder="Tìm tên phim..." />
             </div>
-            <button class="add-film">+ Thêm phim mới</button>
+            <button id="openModalBtn" class="add-film">+ Thêm phim mới</button>
           </div>
         </header>
 
@@ -86,10 +86,11 @@
               </tr>
             </thead>
 
-            <tbody>
-              <tr>
-                <td>
+            <tbody class="tbody">
+              <!-- <tr>
+                <td class="film-poster-container">
                   <img
+                    class="film-poster"
                     src="/cinema_management/assets/images/Dune Poster.png"
                     alt=""
                   />
@@ -102,126 +103,245 @@
                   <div class="type">Hành động</div>
                   <div class="type">Viễn tưởng</div>
                 </td>
-                <td>166 phút</td>
-                <td>01/03/2024</td>
-                <td><div class="">Đang chiếu</div></td>
+                <td class="film-time">
+                  166 <br />
+                  phút
+                </td>
+                <td class="film-publish">01/03/2024</td>
                 <td>
-                  <img src="/cinema_management/assets/icons/edit.png" alt="" />
+                  <div class="film-status">Đang chiếu</div>
+                  <div class="film-status-2">Sắp chiếu</div>
+                </td>
+                <td>
                   <img
+                    class="handle-img"
+                    id="edit"
+                    src="/cinema_management/assets/icons/edit.png"
+                    alt=""
+                  />
+                  <img
+                    class="handle-img"
+                    id="delete"
                     src="/cinema_management/assets/icons/delete.png"
                     alt=""
                   />
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="/cinema_management/assets/images/Kung Fu Panda Poster.png"
-                    alt=""
-                  />
-                </td>
-                <td class="film-name">
-                  <h3>Dune: Part Two</h3>
-                  <p>Hành tinh cát: Phần hai</p>
-                </td>
-                <td>
-                  <div class="type">Hành động</div>
-                  <div class="type">Viễn tưởng</div>
-                </td>
-                <td>166 phút</td>
-                <td>01/03/2024</td>
-                <td><div class="">Đang chiếu</div></td>
-                <td>
-                  <img src="/cinema_management/assets/icons/edit.png" alt="" />
-                  <img
-                    src="/cinema_management/assets/icons/delete.png"
-                    alt=""
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="/cinema_management/assets/images/Godzilla Poster.png"
-                    alt=""
-                  />
-                </td>
-                <td class="film-name">
-                  <h3>Dune: Part Two</h3>
-                  <p>Hành tinh cát: Phần hai</p>
-                </td>
-                <td>
-                  <div class="type">Hành động</div>
-                  <div class="type">Viễn tưởng</div>
-                </td>
-                <td>166 phút</td>
-                <td>01/03/2024</td>
-                <td><div class="">Đang chiếu</div></td>
-                <td>
-                  <img src="/cinema_management/assets/icons/edit.png" alt="" />
-                  <img
-                    src="/cinema_management/assets/icons/delete.png"
-                    alt=""
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="/cinema_management/assets/images/Mai Poster.png"
-                    alt=""
-                  />
-                </td>
-                <td class="film-name">
-                  <h3>Dune: Part Two</h3>
-                  <p>Hành tinh cát: Phần hai</p>
-                </td>
-                <td>
-                  <div class="type">Hành động</div>
-                  <div class="type">Viễn tưởng</div>
-                </td>
-                <td>166 phút</td>
-                <td>01/03/2024</td>
-                <td><div class="">Đang chiếu</div></td>
-                <td>
-                  <img src="/cinema_management/assets/icons/edit.png" alt="" />
-                  <img
-                    src="/cinema_management/assets/icons/delete.png"
-                    alt=""
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="/cinema_management/assets/images/Exhuma Poster.png"
-                    alt=""
-                  />
-                </td>
-                <td class="film-name">
-                  <h3>Dune: Part Two</h3>
-                  <p>Hành tinh cát: Phần hai</p>
-                </td>
-                <td>
-                  <div class="type">Hành động</div>
-                  <div class="type">Viễn tưởng</div>
-                </td>
-                <td>166 phút</td>
-                <td>01/03/2024</td>
-                <td><div class="">Đang chiếu</div></td>
-                <td>
-                  <img src="/cinema_management/assets/icons/edit.png" alt="" />
-                  <img
-                    src="/cinema_management/assets/icons/delete.png"
-                    alt=""
-                  />
-                </td>
-              </tr>
+              </tr> -->
             </tbody>
-            <tfoot></tfoot>
+            <tfoot class="tfoot">
+              <tr>
+                <td colspan="7">
+                  <div class="tfoot-container">
+                    <div class="total">
+                      <p>Hiển thị <span>1-5</span> trên <span>24</span> phim</p>
+                    </div>
+                    <div class="foot-page">
+                      <button class="btn-page" title="Trang trước">&lt;</button>
+                      <button class="btn-page">1</button>
+                      <button class="btn-page">2</button>
+                      <button class="btn-page">3</button>
+                      <span class="dots">...</span>
+                      <button class="btn-page">5</button>
+                      <button class="btn-page" title="Trang sau">&gt;</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
           </table>
         </section>
       </main>
     </div>
+
+    <!-- Thêm phim mới -->
+    <div id="movieModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Thêm Phim Mới</h2>
+          <span class="close-btn">&times;</span>
+        </div>
+
+        <form>
+          <div class="modal-form">
+            <table>
+              <tr>
+                <td colspan="2">
+                  <label class="label-inp" for="">Tên phim *</label>
+                  <br />
+                  <input type="text" placeholder="Nhập tên phim" />
+                </td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label class="label-inp" for="">Thể loại</label>
+                  <br />
+                  <select name="" id="">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                  </select>
+                </td>
+                <td>
+                  <label class="label-inp" for="">Thời lượng (phút) *</label>
+                  <br />
+                  <input type="number" placeholder="Ví dụ: 120" />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label class="label-inp" for="">Ngày khởi chiếu</label>
+                  <br />
+                  <input type="date" />
+                </td>
+                <td>
+                  <label class="label-inp" for="">Trạng thái</label>
+                  <br />
+                  <select name="" id="">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2">
+                  <label class="label-inp" for="">Giá vé</label>
+                  <br />
+                  <input type="text" placeholder="Nhập giá vé ... " />
+                </td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">
+                  <label class="label-inp">URL Ảnh bìa</label>
+                  <div style="display: flex; gap: 10px; align-items: flex-end">
+                    <input
+                      type="text"
+                      placeholder="https://example.com/poster.jpg"
+                      style="flex: 1"
+                    />
+                    <button
+                      type="button"
+                      class="btn-upload"
+                      style="margin-top: 6px; width: auto"
+                    >
+                      Tải Ảnh
+                    </button>
+                  </div>
+                </td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td colspan="2">
+                  <label class="label-inp" for="">Mô tả ngắn</label>
+                  <br />
+                  <textarea
+                    name=""
+                    placeholder="Nhập tóm tắt nội dung phim..."
+                    id=""
+                  ></textarea>
+                </td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel">Hủy</button>
+            <button type="submit" class="btn-submit">+ Thêm mới</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit -->
+    <div id="editMovieModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Cập Nhật Thông Tin Phim</h2>
+          <span class="close-btn">&times;</span>
+        </div>
+
+        <form class="modal-form">
+          <table>
+            <tr>
+              <td>
+                <label class="label-inp">Tên phim *</label>
+                <input type="text" value="Dune: Hành Tinh Cát - Phần 2" />
+              </td>
+              <td>
+                <label class="label-inp">Thể loại</label>
+                <select>
+                  <option>Hành động, Viễn tưởng</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label class="label-inp">Thời lượng (phút) *</label>
+                <input type="number" value="166" />
+              </td>
+              <td>
+                <label class="label-inp">Ngày khởi chiếu</label>
+                <input type="text" value="03/01/2024" />
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <label class="label-inp">Mô tả ngắn</label>
+                <textarea>
+Tiếp nối câu chuyện của phần trước, Paul Atreides hợp nhất với người Fremen để trả thù những kẻ đã hủy diệt gia đình mình...</textarea
+                >
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <label class="label-inp">URL Ảnh bìa</label>
+                <input
+                  type="text"
+                  value="https://example.com/images/dune-2-poster.jpg"
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label class="label-inp">Trạng thái</label>
+                <select>
+                  <option>Đang chiếu</option>
+                  <option>Sắp chiếu</option>
+                </select>
+              </td>
+              <td>
+                <label class="label-inp">Giá vé</label>
+                <input type="text" value="95.000 VNĐ" />
+              </td>
+            </tr>
+          </table>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel">Hủy</button>
+            <button
+              type="submit"
+              class="btn-submit"
+              style="background-color: #e60a15"
+            >
+              Cập nhật
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="/cinema_management/js/common.js"></script>
+    <script src="/cinema_management/js/admin.js"></script>
   </body>
 </html>

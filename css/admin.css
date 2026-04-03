@@ -118,6 +118,7 @@
   background-color: #e60a15;
   border-radius: 8px;
   border: 0;
+  cursor: pointer;
 }
 
 .filter {
@@ -140,6 +141,8 @@
 .table {
   margin-top: 32px;
   border: 1px solid #543b3c;
+  border-radius: 12px;
+  width: 100%;
 }
 
 .thead {
@@ -150,11 +153,18 @@
   background-color: #1f1616;
 }
 
+.film-poster-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .film-name h3 {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   color: white;
+  text-align: center;
 }
 
 .film-name p {
@@ -162,4 +172,277 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
+  text-align: center;
+}
+
+.table td {
+  padding: 16px 24px;
+}
+
+.table th {
+  padding: 16px 24px;
+}
+
+.type-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.type {
+  border-radius: 4px;
+  border: 1px solid #ffffff1a;
+  color: #d1d5db;
+  line-height: 16px;
+  font-size: 12px;
+  padding: 8px;
+  text-align: center;
+}
+
+.film-time {
+  color: #d1d5db;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.film-publish {
+  color: #d1d5db;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.film-status-1 {
+  border-radius: 9999px;
+  background-color: #10b9811a;
+  border: 1px solid #10b98133;
+  color: #34d399;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 10px;
+  text-align: center;
+}
+
+.film-status-2 {
+  border-radius: 9999px;
+  background-color: #f59e0b1a;
+  border: 1px solid #f59e0b33;
+  color: #fbbf24;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 10px;
+  text-align: center;
+}
+
+.film-status-0 {
+  border-radius: 9999px;
+  background-color: #6b72801a;
+  border: 1px solid #6b728033;
+  color: #9ca3af;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 10px;
+  text-align: center;
+}
+
+.handle-img {
+  padding: 0 14px;
+}
+
+.total p {
+  font-size: 14px;
+  color: #ba9c9d;
+}
+
+.total span {
+  font-size: 14px;
+  color: white;
+}
+
+.tfoot-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.foot-page {
+  border-radius: 6px;
+  border: 1px solid #543b3c;
+}
+.btn-page {
+  text-align: center;
+  border: 1px solid #543b3c;
+  background-color: #271b1c;
+  padding: 13px 16px;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.btn-page:first-child {
+  margin-left: 0;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.btn-page:last-child {
+  margin-left: 0;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.btn-page:focus {
+  border: 1px solid #e60a15;
+  background-color: #e60a151a;
+  color: red;
+}
+
+.dots {
+  padding: 12px 14px;
+  cursor: default;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.dots:active {
+  background-color: #e60a151a;
+  color: red;
+}
+
+/* Thêm phim mới */
+
+/* Lớp nền mờ bao phủ toàn màn hình */
+.modal-overlay {
+  display: none; /* Ẩn mặc định */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Nền đen mờ */
+  z-index: 1000; /* Luôn nằm trên cùng */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Nội dung chính của Modal */
+.modal-content {
+  background-color: #1f1616; /* Màu tối như Figma của anh */
+  width: 600px;
+  border-radius: 12px;
+  border: 1px solid #543b3c;
+  color: white;
+  position: relative;
+}
+
+/* Hiển thị modal khi có thêm class 'active' */
+.modal-overlay.active {
+  display: flex;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ba9c9d;
+}
+
+.modal-header {
+  padding: 22.5px 24px;
+  border-bottom: 1px solid #553a3b;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.modal-form {
+  padding: 32px;
+}
+
+.label-inp {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  color: #e2e8f0;
+  margin-bottom: 8px;
+}
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: #271b1c;
+  border: 1px solid #543b3c;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  margin-top: 6px;
+}
+
+.modal-form table {
+  width: 100%;
+  border-collapse: separate; /* Để dùng được border-spacing */
+  border-spacing: 0 15px; /* Khoảng cách giữa các hàng (h ngang 0, v dọc 15px) */
+}
+
+.modal-form td {
+  padding-right: 15px; /* Khoảng cách giữa các cột */
+  vertical-align: top;
+}
+
+.modal-form td[colspan="2"] {
+  padding-right: 0;
+}
+
+.modal-form textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* Nút Tải Ảnh */
+.modal-form td button:not(.btn-cancel):not(.btn-submit) {
+  background-color: #3d2b2c;
+  color: white;
+  border: 1px solid #543b3c;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 25px; /* Căn chỉnh để ngang hàng với input URL */
+  width: 100%;
+  font-size: 13px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end; /* Đẩy sang phải */
+  gap: 12px;
+  padding: 32px;
+  border-top: 1px solid #543b3c;
+}
+
+.btn-cancel {
+  background-color: #3d2b2c;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-submit {
+  background-color: #e60a15;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
 }
