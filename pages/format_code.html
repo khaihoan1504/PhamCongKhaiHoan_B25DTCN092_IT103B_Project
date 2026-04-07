@@ -1,0 +1,28 @@
+<tr>
+  <td class="ticket-code">${ticket.ticketCode}</td>
+  <td class="customer-name">
+    <p>${ticket.customerName}</p>
+    <span>${ticket.customerPhone}</span>
+  </td>
+  <td class="film-name">${ticket.movieTitle}</td>
+  <td class="time">
+    <p>${ticket.showDate}</p>
+  </td>
+  <td>
+    <div class="seat">${ticket.seats}</div>
+  </td>
+  <td class="price">${ticket.totalAmount}</td>
+  <td><div class="status">${ticket.statusDisplay}</div></td>
+  <td>
+    <img
+      class="handle-img"
+      src="/cinema_management/assets/icons/edit.png"
+      style="cursor: pointer"
+    />
+    <img
+      class="handle-img"
+      src="/cinema_management/assets/icons/delete.png"
+      style="cursor: pointer"
+    />
+  </td>
+</tr>

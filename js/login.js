@@ -1,7 +1,6 @@
 let formLoginElement = document.querySelector(".form-login");
 let iEmailElement = document.querySelector("#iEmail");
 let iPasswordElement = document.querySelector("#iPassword");
-let rememberCheckbox = document.querySelector("#rememberCheckbox");
 
 let alertErrorEmailElement = document.querySelector(".alert-error-email");
 let alertErrorPasswordElement = document.querySelector(".alert-error-password");
@@ -106,10 +105,8 @@ formLoginElement.addEventListener("submit", (e) => {
   }
 
   if (isValid) {
-    // 1. LẤY mảng users từ kho ra
-    let listUser = JSON.parse(localStorage.getItem("users"));
+    let listUser = JSON.parse(localStorage.getItem("users")) || [];
 
-    // 2. TÌM KIẾM (Xử lý mảng: dùng hàm .find)
     const emailLogin = document.querySelector("#iEmail").value;
     const passwordLogin = document.querySelector("#iPassword").value;
 
@@ -120,29 +117,54 @@ formLoginElement.addEventListener("submit", (e) => {
     );
 
     if (userfind) {
-      if (rememberCheckbox.checked) {
-        localStorage.setItem(
-          "rememberUser",
-          JSON.stringify({
-            email: iEmail,
-            password: password,
-          }),
-        );
-      } else {
-        localStorage.removeItem("remember");
+      // 1. Kiểm tra tài khoản có đang bị khóa hay không (Dựa trên isActive)
+      if (!userfind.isActive) {
+        Swal.fire({
+          icon: "error",
+          title: "Tài khoản bị khóa",
+          text: "Vui lòng liên hệ quản trị viên để được hỗ trợ!",
+        });
+        return;
       }
-      localStorage.setItem("currentUser", JSON.stringify(userfind));
-      showToast(
-        "Đăng nhập thành công",
-        "Chào mừng bạn đến với trang web của Rikkei",
-        "success",
-      );
 
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 1000);
+      // 2. Lưu thông tin người dùng hiện tại vào LocalStorage (loại bỏ password để bảo mật)
+      const loginUser = {
+        id: userfind.id,
+        fullName: userfind.fullName,
+        email: userfind.email,
+        role: userfind.role,
+      };
+      sessionStorage.setItem("currentUser", JSON.stringify(loginUser));
+
+      // 3. Kiểm tra Role để điều hướng (Redirect)
+      if (userfind.role === "admin") {
+        Swal.fire({
+          icon: "success",
+          title: "Chào Admin!",
+          text: "Đang chuyển hướng đến trang quản trị...",
+          timer: 1500,
+          showConfirmButton: false,
+        }).then(() => {
+          window.location.href = "admin.html";
+        });
+      } else {
+        Swal.fire({
+          icon: "success",
+          title: "Đăng nhập thành công!",
+          text: "Đang quay lại trang chủ...",
+          timer: 1500,
+          showConfirmButton: false,
+        }).then(() => {
+          window.location.href = "index1.html";
+        });
+      }
     } else {
-      showToast("Đăng nhập thất bại", "Tài khoản hoặc mật khẩu sai.", "error");
+      // Trường hợp không tìm thấy user hoặc sai mật khẩu
+      Swal.fire({
+        icon: "error",
+        title: "Thất bại",
+        text: "Email hoặc mật khẩu không chính xác!",
+      });
     }
   }
 });

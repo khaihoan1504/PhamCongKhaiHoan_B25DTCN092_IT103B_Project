@@ -159,12 +159,16 @@
   align-items: center;
 }
 
+.film-poster {
+  width: 48px;
+  height: 64px;
+}
+
 .film-name h3 {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   color: white;
-  text-align: center;
 }
 
 .film-name p {
@@ -172,7 +176,6 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  text-align: center;
 }
 
 .table td {
@@ -197,6 +200,7 @@
   font-size: 12px;
   padding: 8px;
   text-align: center;
+  width: fit-content;
 }
 
 .film-time {
@@ -224,6 +228,7 @@
   line-height: 16px;
   padding: 10px;
   text-align: center;
+  width: fit-content;
 }
 
 .film-status-2 {
@@ -235,6 +240,7 @@
   line-height: 16px;
   padding: 10px;
   text-align: center;
+  width: fit-content;
 }
 
 .film-status-0 {
@@ -246,6 +252,7 @@
   line-height: 16px;
   padding: 10px;
   text-align: center;
+  width: fit-content;
 }
 
 .handle-img {
@@ -424,6 +431,14 @@
   display: flex;
   justify-content: flex-end; /* Đẩy sang phải */
   gap: 12px;
+  padding-top: 32px;
+  border-top: 1px solid #543b3c;
+}
+
+.modal-footer-1 {
+  display: flex;
+  justify-content: flex-end; /* Đẩy sang phải */
+  gap: 12px;
   padding: 32px;
   border-top: 1px solid #543b3c;
 }
@@ -445,4 +460,240 @@
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
+}
+
+.filter-item {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-item:hover {
+  border-color: #e60a15;
+  color: white;
+}
+
+.filter-item.active {
+  background-color: #e60a15;
+  color: white;
+  border-color: #e60a15;
+}
+
+.btn-page.active {
+  background-color: #e60a15;
+  color: white;
+  border-color: #e60a15;
+}
+
+.about {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.about-item {
+  flex: 0 0 calc((100% - 48px) / 3);
+  display: flex;
+  padding: 24px;
+  background-color: #271b1c;
+  border: 1px solid #543b3c;
+  box-shadow: 0px 1px 2px 0px #0000000d;
+  justify-content: space-between;
+  border-radius: 8px;
+}
+
+.about-desc p:nth-of-type(1) {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ba9c9d;
+}
+
+.about-desc p:nth-of-type(2) {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  color: white;
+}
+
+.about-desc p:nth-of-type(3) {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #22c55e;
+}
+
+.btn-book {
+  background-color: #e60e14;
+  box-shadow: 0px 4px 6px -4px #e60a1533;
+  box-shadow: 0px 10px 15px -3px #e60a1533;
+  border-radius: 4px;
+  padding: 8px 24px;
+  color: white;
+  margin-top: 32px;
+  font-size: 14px;
+  line-height: 20px;
+  border: 0;
+  cursor: pointer;
+}
+
+.ticket-code {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #e60a15;
+}
+
+.customer-name p {
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.customer-name span {
+  color: #94a3b8;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.film-name {
+  color: #cbd5e1;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.time p {
+  color: #cbd5e1;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.time span {
+  color: #64748b;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.seat {
+  color: #e2e8f0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 4px 8px;
+  background-color: #392829;
+  border: 1px solid #543b3c;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: white;
+}
+
+.status-1 {
+  color: #4ade80;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background-color: #14532d4d;
+  border: 1px solid #166534;
+  display: inline-block;
+}
+
+.status-2 {
+  color: #fbbf24;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background-color: #78350f4d;
+  border: 1px solid #92400e;
+  display: inline-block;
+}
+
+.status-3 {
+  color: #f87171;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background-color: #7f1d1d4d;
+  border: 1px solid #991b1b;
+  display: inline-block;
+}
+
+/* Layout cho các hàng trong form */
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #e2e8f0;
+  margin-bottom: 6px;
+}
+
+.note {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* Khối tổng tiền màu đỏ đậm */
+.total-preview {
+  background-color: #450a0a; /* Màu đỏ sẫm */
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.preview-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.preview-left p {
+  font-size: 12px;
+  color: #f87171;
+}
+
+.preview-left h3 {
+  font-size: 20px;
+  color: white;
+}
+
+.preview-right {
+  text-align: right;
+  font-size: 12px;
+  color: #fca5a5;
+}
+
+/* Modal Ticket cụ thể */
+.ticket-modal {
+  max-width: 650px;
 }

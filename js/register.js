@@ -89,21 +89,18 @@ formResgiterElement.addEventListener("submit", (e) => {
     isValid = false;
   }
 
-  // Check Email định dạng
   if (!emailRegex.test(iEmailElement.value)) {
     alertErrorEmailElement.style.display = "block";
     iEmailElement.style.borderColor = "red";
     isValid = false;
   }
 
-  // Check Password định dạng
   if (!passwordRegex.test(iPasswordElement.value)) {
     alertErrorPasswordElement.style.display = "block";
     iPasswordElement.style.borderColor = "red";
     isValid = false;
   }
 
-  // Check Mật khẩu trùng khớp
   if (
     iPasswordAgainElement.value !== iPasswordElement.value ||
     !iPasswordAgainElement.value
@@ -113,7 +110,6 @@ formResgiterElement.addEventListener("submit", (e) => {
     isValid = false;
   }
 
-  // Checkbox
   if (!iConfirmElement.checked) {
     alertConfirmElement.style.display = "block";
     isValid = false;
@@ -122,19 +118,24 @@ formResgiterElement.addEventListener("submit", (e) => {
   }
 
   if (isValid) {
-    // 1. LẤY dữ liệu hiện có từ "kho"
     let listUser = JSON.parse(localStorage.getItem("users")) || [];
 
-    // 2. KIỂM TRA TRÙNG (Xử lý mảng: dùng hàm .some)
     const isEmailExist = listUser.some(
       (user) => user.email === iEmailElement.value.trim(),
     );
     if (isEmailExist) {
-      alert("Email này đã có người sử dụng!");
+      Swal.fire({
+        title: "Email đã tồn tại!",
+        text: "Email này đã được sử dụng bởi một tài khoản khác. Vui lòng thử lại với email khác.",
+        icon: "error",
+        background: "#1f1616",
+        color: "#fff",
+        confirmButtonColor: "#e60a15",
+        confirmButtonText: "Đã hiểu",
+      });
       return;
     }
 
-    // 3. THÊM NGƯỜI MỚI (Xử lý mảng: tạo object mới và .push)
     const newUser = {
       id: listUser.length > 0 ? listUser[listUser.length - 1].id + 1 : 1,
       fullName: iNameElement.value.trim(),
@@ -146,7 +147,6 @@ formResgiterElement.addEventListener("submit", (e) => {
     };
     listUser.push(newUser);
 
-    // 4. CẤT ngược lại vào "kho"
     localStorage.setItem("users", JSON.stringify(listUser));
 
     alert("Đăng ký thành công!");

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/cinema_management/css/admin.css" />
+    <link rel="stylesheet" href="/cinema_management/css/admin-ticket.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Rikkei Cinema</title>
   </head>
   <body>
@@ -16,14 +17,14 @@
           <nav class="menu">
             <div class="menu-item">
               <img src="/cinema_management/assets/icons/film-icon.png" alt="" />
-              <a href="">Quản lý phim</a>
+              <a href="/cinema_management/pages/admin.html">Quản lý phim</a>
             </div>
             <div class="menu-item">
               <img
                 src="/cinema_management/assets/icons/ticket-icon.png"
                 alt=""
               />
-              <a href="">Quản lý vé</a>
+              <a href="/cinema_management/pages/ticket.html">Quản lý vé</a>
             </div>
           </nav>
         </div>
@@ -34,7 +35,7 @@
           </div>
           <div class="user-name">
             <h3>Admin quản lý</h3>
-            <p>LQTuan@rikkei.edu.vn</p>
+            <p class="user-name-1">LQTuan@rikkei.edu.vn</p>
           </div>
           <div class="log-out">
             <img
@@ -59,17 +60,22 @@
                 src="/cinema_management/assets/icons/search.png"
                 alt=""
               />
-              <input class="search" type="text" placeholder="Tìm tên phim..." />
+              <input
+                id="searchInput"
+                class="search"
+                type="text"
+                placeholder="Tìm tên phim..."
+              />
             </div>
             <button id="openModalBtn" class="add-film">+ Thêm phim mới</button>
           </div>
         </header>
 
         <section class="filter">
-          <div class="filter-item">Tất cả (24)</div>
-          <div class="filter-item">Tất cả (24)</div>
-          <div class="filter-item">Tất cả (24)</div>
-          <div class="filter-item">Tất cả (24)</div>
+          <button class="filter-item"></button>
+          <button class="filter-item"></button>
+          <button class="filter-item"></button>
+          <button class="filter-item"></button>
         </section>
 
         <section class="list-film">
@@ -86,48 +92,7 @@
               </tr>
             </thead>
 
-            <tbody class="tbody">
-              <!-- <tr>
-                <td class="film-poster-container">
-                  <img
-                    class="film-poster"
-                    src="/cinema_management/assets/images/Dune Poster.png"
-                    alt=""
-                  />
-                </td>
-                <td class="film-name">
-                  <h3>Dune: Part Two</h3>
-                  <p>Hành tinh cát: Phần hai</p>
-                </td>
-                <td>
-                  <div class="type">Hành động</div>
-                  <div class="type">Viễn tưởng</div>
-                </td>
-                <td class="film-time">
-                  166 <br />
-                  phút
-                </td>
-                <td class="film-publish">01/03/2024</td>
-                <td>
-                  <div class="film-status">Đang chiếu</div>
-                  <div class="film-status-2">Sắp chiếu</div>
-                </td>
-                <td>
-                  <img
-                    class="handle-img"
-                    id="edit"
-                    src="/cinema_management/assets/icons/edit.png"
-                    alt=""
-                  />
-                  <img
-                    class="handle-img"
-                    id="delete"
-                    src="/cinema_management/assets/icons/delete.png"
-                    alt=""
-                  />
-                </td>
-              </tr> -->
-            </tbody>
+            <tbody class="tbody"></tbody>
             <tfoot class="tfoot">
               <tr>
                 <td colspan="7">
@@ -161,14 +126,14 @@
           <span class="close-btn">&times;</span>
         </div>
 
-        <form>
+        <form id="add-film-form">
           <div class="modal-form">
             <table>
               <tr>
                 <td colspan="2">
                   <label class="label-inp" for="">Tên phim *</label>
                   <br />
-                  <input type="text" placeholder="Nhập tên phim" />
+                  <input id="title" type="text" placeholder="Nhập tên phim" />
                 </td>
                 <td></td>
               </tr>
@@ -177,16 +142,19 @@
                 <td>
                   <label class="label-inp" for="">Thể loại</label>
                   <br />
-                  <select name="" id="">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
+                  <select id="genres" name="">
+                    <option value="Hành động, Viễn tưởng">
+                      Hành động, Viễn tưởng
+                    </option>
+                    <option value="Hoạt hình, Hài">Hoạt hình, Hài</option>
+                    <option value="Tâm lý, Tình cảm">Tâm lý, Tình cảm</option>
+                    <option value="Kinh dị, Bí ẩn">Kinh dị, Bí ẩn</option>
                   </select>
                 </td>
                 <td>
                   <label class="label-inp" for="">Thời lượng (phút) *</label>
                   <br />
-                  <input type="number" placeholder="Ví dụ: 120" />
+                  <input id="duration" type="number" placeholder="Ví dụ: 120" />
                 </td>
               </tr>
 
@@ -194,15 +162,15 @@
                 <td>
                   <label class="label-inp" for="">Ngày khởi chiếu</label>
                   <br />
-                  <input type="date" />
+                  <input id="releaseDate" type="date" />
                 </td>
                 <td>
                   <label class="label-inp" for="">Trạng thái</label>
                   <br />
-                  <select name="" id="">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
+                  <select name="" id="status">
+                    <option value="1">Đang chiếu</option>
+                    <option value="2">Sắp chiếu</option>
+                    <option value="0">Đã chiếu</option>
                   </select>
                 </td>
               </tr>
@@ -211,7 +179,11 @@
                 <td colspan="2">
                   <label class="label-inp" for="">Giá vé</label>
                   <br />
-                  <input type="text" placeholder="Nhập giá vé ... " />
+                  <input
+                    id="ticketPrice"
+                    type="number"
+                    placeholder="Nhập giá vé ... "
+                  />
                 </td>
                 <td></td>
               </tr>
@@ -221,6 +193,7 @@
                   <label class="label-inp">URL Ảnh bìa</label>
                   <div style="display: flex; gap: 10px; align-items: flex-end">
                     <input
+                      id="posterUrl"
                       type="text"
                       placeholder="https://example.com/poster.jpg"
                       style="flex: 1"
@@ -242,6 +215,7 @@
                   <label class="label-inp" for="">Mô tả ngắn</label>
                   <br />
                   <textarea
+                    id="description"
                     name=""
                     placeholder="Nhập tóm tắt nội dung phim..."
                     id=""
@@ -251,7 +225,7 @@
               </tr>
             </table>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer-1">
             <button type="button" class="btn-cancel">Hủy</button>
             <button type="submit" class="btn-submit">+ Thêm mới</button>
           </div>
@@ -267,17 +241,22 @@
           <span class="close-btn">&times;</span>
         </div>
 
-        <form class="modal-form">
+        <form id="edit-film-form" class="modal-form">
           <table>
             <tr>
               <td>
                 <label class="label-inp">Tên phim *</label>
-                <input type="text" value="Dune: Hành Tinh Cát - Phần 2" />
+                <input id="edit-name-inp" type="text" />
               </td>
               <td>
                 <label class="label-inp">Thể loại</label>
-                <select>
-                  <option>Hành động, Viễn tưởng</option>
+                <select id="edit-genres" name="">
+                  <option value="Hành động, Viễn tưởng">
+                    Hành động, Viễn tưởng
+                  </option>
+                  <option value="Hoạt hình, Hài">Hoạt hình, Hài</option>
+                  <option value="Tâm lý, Tình cảm">Tâm lý, Tình cảm</option>
+                  <option value="Kinh dị, Bí ẩn">Kinh dị, Bí ẩn</option>
                 </select>
               </td>
             </tr>
@@ -285,44 +264,40 @@
             <tr>
               <td>
                 <label class="label-inp">Thời lượng (phút) *</label>
-                <input type="number" value="166" />
+                <input type="number" id="edit-duration" />
               </td>
               <td>
                 <label class="label-inp">Ngày khởi chiếu</label>
-                <input type="text" value="03/01/2024" />
+                <input type="text" id="edit-release-date" />
               </td>
             </tr>
 
             <tr>
               <td colspan="2">
                 <label class="label-inp">Mô tả ngắn</label>
-                <textarea>
-Tiếp nối câu chuyện của phần trước, Paul Atreides hợp nhất với người Fremen để trả thù những kẻ đã hủy diệt gia đình mình...</textarea
-                >
+                <textarea id="edit-description"></textarea>
               </td>
             </tr>
 
             <tr>
               <td colspan="2">
                 <label class="label-inp">URL Ảnh bìa</label>
-                <input
-                  type="text"
-                  value="https://example.com/images/dune-2-poster.jpg"
-                />
+                <input type="text" id="edit-poster-url" />
               </td>
             </tr>
 
             <tr>
               <td>
                 <label class="label-inp">Trạng thái</label>
-                <select>
-                  <option>Đang chiếu</option>
-                  <option>Sắp chiếu</option>
+                <select id="edit-status">
+                  <option value="1">Đang chiếu</option>
+                  <option value="2">Sắp chiếu</option>
+                  <option value="0">Đã chiếu</option>
                 </select>
               </td>
               <td>
                 <label class="label-inp">Giá vé</label>
-                <input type="text" value="95.000 VNĐ" />
+                <input type="text" id="edit-price" />
               </td>
             </tr>
           </table>
@@ -338,6 +313,50 @@ Tiếp nối câu chuyện của phần trước, Paul Atreides hợp nhất v�
             </button>
           </div>
         </form>
+      </div>
+    </div>
+
+    <div id="deleteModal" class="modal-overlay">
+      <div class="modal-content" style="width: 400px; text-align: center">
+        <div style="padding: 20px">
+          <div style="color: #e60a15; font-size: 50px; margin-bottom: 10px">
+            ⚠️
+          </div>
+          <h2 style="margin-bottom: 15px">Xác nhận xóa phim</h2>
+          <p id="deleteMessage" style="color: #ba9c9d; margin-bottom: 25px">
+            Bạn có chắc chắn muốn xóa phim này không? Hành động này không thể
+            hoàn tác.
+          </p>
+
+          <div
+            style="
+              display: flex;
+              justify-content: flex-end;
+              gap: 10px;
+              background-color: #1a1111;
+              padding: 15px;
+              margin: 0 -20px -20px -20px;
+              border-bottom-left-radius: 12px;
+              border-bottom-right-radius: 12px;
+            "
+          >
+            <button
+              type="button"
+              class="btn-cancel"
+              onclick="closeDeleteModal()"
+            >
+              Hủy
+            </button>
+            <button
+              type="button"
+              id="confirmDeleteBtn"
+              class="btn-submit"
+              style="background-color: #e60a15"
+            >
+              Xóa ngay
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 

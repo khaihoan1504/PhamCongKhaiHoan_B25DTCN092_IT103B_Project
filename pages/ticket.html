@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/cinema_management/css/admin-ticket.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Rikkei Cinema</title>
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="top-group">
+          <div class="logo">
+            <img src="/cinema_management/assets/images/Logo-admin.png" alt="" />
+          </div>
+          <nav class="menu">
+            <div class="menu-item">
+              <img src="/cinema_management/assets/icons/film-icon.png" alt="" />
+              <a href="/cinema_management/pages/admin.html">Quản lý phim</a>
+            </div>
+            <div class="menu-item">
+              <img
+                src="/cinema_management/assets/icons/ticket-icon.png"
+                alt=""
+              />
+              <a href="/cinema_management/pages/ticket.html">Quản lý vé</a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="user-profile">
+          <div class="avatar">
+            <img src="/cinema_management/assets/images/avt.png" alt="" />
+          </div>
+          <div class="user-name">
+            <h3>Admin quản lý</h3>
+            <p class="user-name-1">LQTuan@rikkei.edu.vn</p>
+          </div>
+          <div class="log-out">
+            <img
+              class="log-out-icon"
+              src="/cinema_management/assets/icons/log-out.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="header">
+          <div class="title-desc">
+            <h1>Quản lý vé đã đặt</h1>
+          </div>
+          <div class="search-add">
+            <div class="search-container">
+              <img
+                class="search-icon"
+                src="/cinema_management/assets/icons/search.png"
+                alt=""
+              />
+              <input
+                id="searchInput"
+                class="search"
+                type="text"
+                placeholder="Tìm kiếm mã vé, tên khách..."
+              />
+            </div>
+            <img
+              src="/cinema_management/assets/icons/Button - Notification Bell.png"
+              alt=""
+            />
+          </div>
+        </header>
+
+        <section class="about">
+          <div class="about-item">
+            <div class="about-desc">
+              <p>Tổng vé hôm nay</p>
+              <p class="total-ticket">152</p>
+              <p>+0% so với hôm qua</p>
+            </div>
+            <div class="about-img">
+              <img src="/cinema_management/assets/icons/Icon (2).png" alt="" />
+            </div>
+          </div>
+          <div class="about-item">
+            <div class="about-desc">
+              <p>Doanh thu ngày</p>
+              <p class="total-amount">12.5tr</p>
+              <p>+0% so với mục tiêu</p>
+            </div>
+            <div class="about-img">
+              <img src="/cinema_management/assets/icons/Icon (3).png" alt="" />
+            </div>
+          </div>
+          <div class="about-item">
+            <div class="about-desc">
+              <p>Vé chờ xác nhận</p>
+              <p class="total-pending">5</p>
+              <p style="color: #f59e0b">Cần xử lý ngay</p>
+            </div>
+            <div class="about-img">
+              <img src="/cinema_management/assets/icons/Icon (4).png" alt="" />
+            </div>
+          </div>
+        </section>
+
+        <button class="btn-book">Đặt vé</button>
+
+        <section class="list-film">
+          <table class="table">
+            <thead class="thead">
+              <tr>
+                <th>MÃ VÉ</th>
+                <th>KHÁCH HÀNG</th>
+                <th>PHIM</th>
+                <th>SUẤT CHIẾU</th>
+                <th>GHẾ</th>
+                <th>TỔNG TIỀN</th>
+                <th>TRẠNG THÁI</th>
+                <th>THAO TÁC</th>
+              </tr>
+            </thead>
+
+            <tbody class="tbody"></tbody>
+            <tfoot class="tfoot">
+              <tr>
+                <td colspan="8">
+                  <div class="tfoot-container">
+                    <div class="total">
+                      <p>Hiển thị <span>1-5</span> trên <span>24</span> phim</p>
+                    </div>
+                    <div class="foot-page">
+                      <button class="btn-page" title="Trang trước">&lt;</button>
+                      <button class="btn-page">1</button>
+                      <button class="btn-page">2</button>
+                      <button class="btn-page">3</button>
+                      <span class="dots">...</span>
+                      <button class="btn-page">5</button>
+                      <button class="btn-page" title="Trang sau">&gt;</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-overlay" id="modalBookTicket">
+      <div class="modal-content ticket-modal">
+        <div class="modal-header">
+          <h2>Thêm Mới Đặt Vé</h2>
+          <span class="close-btn" id="btnClose">&times;</span>
+        </div>
+        <form id="ticketForm" class="modal-form">
+          <div class="form-group">
+            <label>Nhập tên khách hàng</label>
+            <input id="ticket-name" type="text" placeholder="Nguyễn Văn A..." />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Chọn phim</label>
+              <select id="movieSelect"></select>
+            </div>
+            <div class="form-group">
+              <label>Chọn suất chiếu</label>
+              <input type="datetime-local" name="" id="datetime" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Chọn ghế</label>
+            <input type="text" id="seatInput" placeholder="Ví dụ: F5, F6" />
+            <span class="note">Phân cách các ghế bằng dấu phẩy</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phương thức thanh toán</label>
+              <select id="paymentMethod">
+                <option value="0">Tiền mặt</option>
+                <option value="1">Chuyển khoản</option>
+                <option value="2">Thẻ ngân hàng</option>
+                <option value="3">Ví điện tử</option>
+                <option value="4">Khác</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Trạng thái thanh toán</label>
+              <select id="paymentStatus">
+                <option value="successfully">Đã thanh toán</option>
+                <option value="pending">Cần xử lý</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="total-preview">
+            <div class="preview-left">
+              <img
+                src="/cinema_management/assets/icons/ticket-icon.png"
+                alt=""
+              />
+              <div>
+                <p>TỔNG TIỀN DỰ KIẾN</p>
+                <h3 id="totalDisplay">0 đ</h3>
+              </div>
+            </div>
+            <div class="preview-right">
+              <p id="ticketDetail">0 vé x 0 đ</p>
+              <p>Đã bao gồm VAT</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="btnCancel">Hủy</button>
+            <button type="submit" class="btn-submit">Xác nhận đặt vé</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modalEditTicket">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Cập Nhật Thông Tin Vé</h2>
+          <p
+            id="editTicketCodeHeader"
+            style="font-size: 12px; color: #ba9c9d"
+          ></p>
+          <span class="close-btn" id="btnCloseEdit">&times;</span>
+        </div>
+        <form class="modal-form" id="editTicketForm">
+          <input type="hidden" id="editId" />
+
+          <div class="form-group">
+            <label>Khách hàng</label>
+            <input type="text" id="editTicketName" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phim</label>
+              <select id="editMovieSelect" required></select>
+            </div>
+            <div class="form-group">
+              <label>Suất chiếu</label>
+              <input type="datetime-local" id="editDatetime" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Vị trí ghế</label>
+              <input type="text" id="editSeatInput" required />
+            </div>
+            <div class="form-group">
+              <label>Trạng thái thanh toán</label>
+              <select id="editPaymentStatus">
+                <option value="successfully">Đã thanh toán</option>
+                <option value="pending">Cần xử lý</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Ghi chú</label>
+            <textarea
+              id="editNote"
+              placeholder="Nhập ghi chú của admin..."
+            ></textarea>
+          </div>
+
+          <div class="total-preview">
+            <div class="preview-left">
+              <div>
+                <p id="editSeatCountDisplay">Tổng số ghế: 0</p>
+              </div>
+            </div>
+            <div class="preview-right">
+              <p>Tổng tiền thanh toán</p>
+              <h3 id="editTotalDisplay">0 đ</h3>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="btnCancelEdit">
+              Hủy
+            </button>
+            <button type="submit" class="btn-submit">Lưu thay đổi</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="/cinema_management/js/common.js"></script>
+    <script src="/cinema_management/js/ticket.js"></script>
+  </body>
+</html>

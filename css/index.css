@@ -169,6 +169,7 @@
   font-weight: 500;
   color: #e60a15;
   text-decoration: none;
+  cursor: pointer;
 }
 .img-right {
   width: 12px;
@@ -178,7 +179,6 @@
   width: 100%;
   display: flex;
   gap: 24px;
-  justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
 }
@@ -191,12 +191,13 @@
   width: calc((100% - 72px) / 4);
   background-color: #9ca3af28;
   border-radius: 12px;
+  overflow: hidden;
 }
 .img-item {
   width: 100%;
-  height: auto;
   display: block;
-  border-radius: 8px;
+  height: 440px;
+  object-fit: cover;
 }
 .h3-item {
   font-size: 18px;

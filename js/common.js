@@ -2,8 +2,8 @@ const defaultUsers = [
   {
     id: 1,
     fullName: "Admin Chính",
-    email: "LQTuan@rikkei.edu.vn",
-    password: "Admin123456",
+    email: "hoannzey@gmail.com",
+    password: "Hoan2007@",
     role: "admin",
     createdAt: "2026-03-03T12:26:21.617Z",
     isActive: true,
@@ -39,7 +39,7 @@ const defaultMovies = [
     titleVi: "Dune: Hành Tinh Cát - Phần 2",
     genres: "Hành động, Viễn tưởng",
     duration: 166,
-    releaseDate: "01/03/2024",
+    releaseDate: "2024-03-01",
     status: 1,
     posterUrl: "/cinema_management/assets/images/Dune Poster.png",
     description:
@@ -52,7 +52,7 @@ const defaultMovies = [
     titleVi: "Kung Fu Panda 4",
     genres: "Hoạt hình, Hài",
     duration: 94,
-    releaseDate: "08/03/2024",
+    releaseDate: "2024-03-08",
     status: 1,
     posterUrl: "/cinema_management/assets/images/Kung Fu Panda Poster.png",
     description:
@@ -65,7 +65,7 @@ const defaultMovies = [
     titleVi: "Godzilla x Kong: Đế Chế Mới",
     genres: "Hành động, Viễn tưởng",
     duration: 115,
-    releaseDate: "29/03/2024",
+    releaseDate: "2024-03-29",
     status: 2,
     posterUrl: "/cinema_management/assets/images/Godzilla Poster.png",
     description:
@@ -78,7 +78,7 @@ const defaultMovies = [
     titleVi: "Mai",
     genres: "Tâm lý, Tình cảm",
     duration: 131,
-    releaseDate: "10/02/2024",
+    releaseDate: "2024-02-10",
     status: 0,
     posterUrl: "/cinema_management/assets/images/Mai Poster.png",
     description:
@@ -91,7 +91,7 @@ const defaultMovies = [
     titleVi: "Exhuma: Quật Mộ Trùng Tang",
     genres: "Kinh dị, Bí ẩn",
     duration: 134,
-    releaseDate: "15/03/2024",
+    releaseDate: "2024-03-15",
     status: 1,
     posterUrl: "/cinema_management/assets/images/Exhuma Poster.png",
     description:
@@ -103,3 +103,28 @@ const defaultMovies = [
 if (!localStorage.getItem("movies")) {
   localStorage.setItem("movies", JSON.stringify(defaultMovies));
 }
+
+const defaultTickets = [
+  {
+    id: 1001,
+    ticketCode: "VE-1001",
+    customerName: "Nguyen Van A",
+    movieId: 1,
+    movieTitle: "Dune: Part Two",
+    showDate: "2026-03-15",
+    seats: ["F12", "F13"],
+    seatCount: 2,
+    pricePerSeat: 90000,
+    totalAmount: 180000,
+    paymentMethod: 0,
+    paymentStatus: "successfully", 
+    createAt: "2026 - 03 -10T14:30:00Z",
+    note: "Khách yêu cầu ghế gần lối đi",
+    statusDisplay: "Đã thanh toán",
+  },
+];
+
+if (!localStorage.getItem("tickets")) {
+  localStorage.setItem("tickets", JSON.stringify(defaultTickets));
+}
+
