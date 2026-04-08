@@ -318,25 +318,21 @@
   color: red;
 }
 
-/* Thêm phim mới */
-
-/* Lớp nền mờ bao phủ toàn màn hình */
 .modal-overlay {
-  display: none; /* Ẩn mặc định */
+  display: none; 
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Nền đen mờ */
-  z-index: 1000; /* Luôn nằm trên cùng */
+  background-color: rgba(0, 0, 0, 0.7); 
+  z-index: 1000; 
   justify-content: center;
   align-items: center;
 }
 
-/* Nội dung chính của Modal */
 .modal-content {
-  background-color: #1f1616; /* Màu tối như Figma của anh */
+  background-color: #1f1616; 
   width: 600px;
   border-radius: 12px;
   border: 1px solid #543b3c;
@@ -344,7 +340,6 @@
   position: relative;
 }
 
-/* Hiển thị modal khi có thêm class 'active' */
 .modal-overlay.active {
   display: flex;
 }
@@ -396,12 +391,12 @@
 
 .modal-form table {
   width: 100%;
-  border-collapse: separate; /* Để dùng được border-spacing */
-  border-spacing: 0 15px; /* Khoảng cách giữa các hàng (h ngang 0, v dọc 15px) */
+  border-collapse: separate; 
+  border-spacing: 0 15px; 
 }
 
 .modal-form td {
-  padding-right: 15px; /* Khoảng cách giữa các cột */
+  padding-right: 15px; 
   vertical-align: top;
 }
 
@@ -414,7 +409,6 @@
   resize: none;
 }
 
-/* Nút Tải Ảnh */
 .modal-form td button:not(.btn-cancel):not(.btn-submit) {
   background-color: #3d2b2c;
   color: white;
@@ -422,14 +416,14 @@
   padding: 10px 15px;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 25px; /* Căn chỉnh để ngang hàng với input URL */
+  margin-top: 25px; 
   width: 100%;
   font-size: 13px;
 }
 
 .modal-footer {
   display: flex;
-  justify-content: flex-end; /* Đẩy sang phải */
+  justify-content: flex-end; 
   gap: 12px;
   padding-top: 32px;
   border-top: 1px solid #543b3c;
@@ -437,7 +431,7 @@
 
 .modal-footer-1 {
   display: flex;
-  justify-content: flex-end; /* Đẩy sang phải */
+  justify-content: flex-end; 
   gap: 12px;
   padding: 32px;
   border-top: 1px solid #543b3c;
@@ -634,7 +628,6 @@
   display: inline-block;
 }
 
-/* Layout cho các hàng trong form */
 .form-row {
   display: flex;
   gap: 16px;
@@ -660,9 +653,8 @@
   margin-top: 4px;
 }
 
-/* Khối tổng tiền màu đỏ đậm */
 .total-preview {
-  background-color: #450a0a; /* Màu đỏ sẫm */
+  background-color: #450a0a; 
   border-radius: 8px;
   padding: 16px;
   display: flex;
@@ -693,7 +685,6 @@
   color: #fca5a5;
 }
 
-/* Modal Ticket cụ thể */
 .ticket-modal {
   max-width: 650px;
 }
